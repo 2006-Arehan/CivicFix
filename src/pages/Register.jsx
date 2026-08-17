@@ -19,7 +19,7 @@ const Register = () => {
         setLoading(true);
         await new Promise(r => setTimeout(r, 900));
         login(form.email, 'citizen', form.name);
-        navigate('/');
+        navigate('/dashboard');
     };
 
     return (
@@ -27,8 +27,21 @@ const Register = () => {
             <div className="auth-bg"><div className="bg-grid" /></div>
             <div className="auth-card animate-fade-in">
                 <div className="auth-header">
+                    <div className="auth-logo" style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+                        <svg viewBox="0 0 40 40" fill="none" width="48" height="48">
+                            <defs>
+                                <linearGradient id="regCfGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stopColor="#00d4ff" />
+                                    <stop offset="100%" stopColor="#3b82f6" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="40" height="40" rx="10" fill="url(#regCfGrad)" fillOpacity="0.15" stroke="url(#regCfGrad)" strokeWidth="1.5" strokeOpacity="0.4" />
+                            <path d="M20 7L31 12V20C31 27 25.5 32.5 20 34C14.5 32.5 9 27 9 20V12L20 7Z" fill="url(#regCfGrad)" fillOpacity="0.25" stroke="url(#regCfGrad)" strokeWidth="1.8" />
+                            <path d="M15 20L18.5 23.5L25 15" stroke="#00d4ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </div>
                     <h1 className="auth-title">Create <span>Account</span></h1>
-                    <p className="auth-subtitle">Join RoadVision AI as a Citizen</p>
+                    <p className="auth-subtitle">Join CivicFix as a Citizen</p>
                 </div>
                 <form onSubmit={handleSubmit} className="auth-form">
                     {error && <div className="auth-error">{error}</div>}

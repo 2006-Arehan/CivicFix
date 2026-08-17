@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: roadvision-ai-backend
+    name: civicfix-backend
     env: python
     plan: free
     rootDir: backend

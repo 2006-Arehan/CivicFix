@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import AppLayout from './components/Layout/AppLayout';
+import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -45,9 +46,15 @@ const AppRoutes = () => {
   const { user } = useAuth();
   return (
     <Routes>
-      <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
-      <Route path="/register" element={user ? <Navigate to="/" replace /> : <Register />} />
-      <Route path="/" element={<ProtectedRoute><RoleRouter /></ProtectedRoute>} />
+      {/* Landing Page */}
+      <Route path="/" element={<LandingPage />} />
+
+      {/* Role Redirection */}
+      <Route path="/dashboard" element={<ProtectedRoute><RoleRouter /></ProtectedRoute>} />
+
+      {/* Authentication */}
+      <Route path="/login" element={user ? <Navigate to="/dashboard" replace /> : <Login />} />
+      <Route path="/register" element={user ? <Navigate to="/dashboard" replace /> : <Register />} />
 
       {/* Citizen Routes */}
       <Route path="/citizen" element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>

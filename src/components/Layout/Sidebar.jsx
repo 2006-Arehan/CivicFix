@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
-    LayoutDashboard, Map, FileText, Bell, BarChart2,
+    Home, LayoutDashboard, Map, FileText, Bell, BarChart2,
     Settings, ClipboardList, LogOut, Radio, ChevronLeft, ChevronRight,
     Navigation, Wrench, AlertTriangle, ScanSearch
 } from 'lucide-react';
@@ -10,6 +10,7 @@ import './Sidebar.css';
 
 const navConfig = {
     citizen: [
+        { icon: Home, label: 'Home Page', path: '/' },
         { icon: LayoutDashboard, label: 'Dashboard', path: '/citizen/dashboard' },
         { icon: Map, label: 'Map View', path: '/citizen/map' },
         { icon: FileText, label: 'My Reports', path: '/citizen/reports' },
@@ -19,6 +20,7 @@ const navConfig = {
         { icon: Settings, label: 'Settings', path: '/citizen/settings' },
     ],
     admin: [
+        { icon: Home, label: 'Home Page', path: '/' },
         { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },
         { icon: Map, label: 'City Map', path: '/admin/map' },
         { icon: ClipboardList, label: 'Reports', path: '/admin/reports' },
@@ -27,6 +29,7 @@ const navConfig = {
         { icon: Settings, label: 'Settings', path: '/admin/settings' },
     ],
     maintenance: [
+        { icon: Home, label: 'Home Page', path: '/' },
         { icon: Wrench, label: 'My Tasks', path: '/maintenance/dashboard' },
         { icon: Map, label: 'Map', path: '/maintenance/map' },
         { icon: Settings, label: 'Settings', path: '/maintenance/settings' },
@@ -50,19 +53,22 @@ const Sidebar = () => {
             {/* Logo */}
             <div className="sidebar-logo">
                 <div className="logo-icon">
-                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
-                        <rect width="40" height="40" rx="8" fill="rgba(0,212,255,0.15)" />
-                        <path d="M20 6L6 13v4l14 7 14-7v-4L20 6z" fill="#00d4ff" opacity="0.9" />
-                        <path d="M6 17v8l14 7V25L6 17z" fill="#00d4ff" opacity="0.5" />
-                        <path d="M34 17v8l-14 7V25l14-8z" fill="#00d4ff" opacity="0.7" />
-                        <circle cx="20" cy="20" r="2.5" fill="white" />
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+                        <defs>
+                            <linearGradient id="sbCfGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stopColor="#00d4ff" />
+                                <stop offset="100%" stopColor="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="40" height="40" rx="10" fill="url(#sbCfGrad)" fillOpacity="0.15" stroke="url(#sbCfGrad)" strokeWidth="1.5" strokeOpacity="0.4" />
+                        <path d="M20 7L31 12V20C31 27 25.5 32.5 20 34C14.5 32.5 9 27 9 20V12L20 7Z" fill="url(#sbCfGrad)" fillOpacity="0.25" stroke="url(#sbCfGrad)" strokeWidth="1.8" />
+                        <path d="M15 20L18.5 23.5L25 15" stroke="#00d4ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
                 {!collapsed && (
                     <div className="logo-text">
-                        <span className="logo-primary">Road</span>
-                        <span className="logo-accent">Vision</span>
-                        <span className="logo-tag">AI</span>
+                        <span className="logo-primary">Civic</span>
+                        <span className="logo-accent">Fix</span>
                     </div>
                 )}
                 <button className="collapse-btn" onClick={() => setCollapsed(c => !c)}>

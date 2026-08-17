@@ -33,7 +33,7 @@ const Login = () => {
         await new Promise(r => setTimeout(r, 900));
         login(form.email, form.role, form.email.split('@')[0]);
         setLoading(false);
-        navigate('/');
+        navigate('/dashboard');
     };
 
     return (
@@ -54,15 +54,19 @@ const Login = () => {
                 {/* Header */}
                 <div className="auth-header">
                     <div className="auth-logo">
-                        <svg viewBox="0 0 40 40" fill="none" width="44" height="44">
-                            <rect width="40" height="40" rx="10" fill="rgba(0,212,255,0.15)" />
-                            <path d="M20 6L6 13v4l14 7 14-7v-4L20 6z" fill="#00d4ff" opacity="0.9" />
-                            <path d="M6 17v8l14 7V25L6 17z" fill="#00d4ff" opacity="0.5" />
-                            <path d="M34 17v8l-14 7V25l14-8z" fill="#00d4ff" opacity="0.7" />
-                            <circle cx="20" cy="20" r="2.5" fill="white" />
+                        <svg viewBox="0 0 40 40" fill="none" width="48" height="48">
+                            <defs>
+                                <linearGradient id="lgCfGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stopColor="#00d4ff" />
+                                    <stop offset="100%" stopColor="#3b82f6" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="40" height="40" rx="10" fill="url(#lgCfGrad)" fillOpacity="0.15" stroke="url(#lgCfGrad)" strokeWidth="1.5" strokeOpacity="0.4" />
+                            <path d="M20 7L31 12V20C31 27 25.5 32.5 20 34C14.5 32.5 9 27 9 20V12L20 7Z" fill="url(#lgCfGrad)" fillOpacity="0.25" stroke="url(#lgCfGrad)" strokeWidth="1.8" />
+                            <path d="M15 20L18.5 23.5L25 15" stroke="#00d4ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                    <h1 className="auth-title">RoadVision <span>AI</span></h1>
+                    <h1 className="auth-title">Civic<span>Fix</span></h1>
                     <p className="auth-subtitle">Smart City Road Monitoring System</p>
                 </div>
 

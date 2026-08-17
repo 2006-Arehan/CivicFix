@@ -2,17 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
-    LayoutDashboard, Map, FileText, Bell, BarChart2, Radio, Navigation, Wrench
+    Home, LayoutDashboard, Map, FileText, Bell, BarChart2, Radio, Navigation, Wrench
 } from 'lucide-react';
 import './MobileNav.css';
 
 const mobileNavConfig = {
     citizen: [
-        { icon: LayoutDashboard, label: 'Home', path: '/citizen/dashboard' },
+        { icon: Home, label: 'Main', path: '/' },
+        { icon: LayoutDashboard, label: 'Dash', path: '/citizen/dashboard' },
         { icon: Map, label: 'Map', path: '/citizen/map' },
         { icon: Radio, label: 'Report', path: '/citizen/report' },
         { icon: FileText, label: 'Reports', path: '/citizen/reports' },
-        { icon: Navigation, label: 'Route', path: '/citizen/safe-route' },
     ],
     admin: [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },

@@ -8,7 +8,7 @@ from PIL import Image
 
 import os
 
-app = FastAPI(title="RoadVision AI ML Backend")
+app = FastAPI(title="CivicFix ML Backend")
 
 # Create a directory to save "difficult" images for better training (Active Learning)
 DATA_COLLECTION_DIR = "training_data_enrichment"
@@ -48,7 +48,7 @@ ALLOWED_ROAD_CLASSES = [
 
 @app.get("/")
 async def root():
-    return {"message": "RoadVision AI Strict Detection Backend is running"}
+    return {"message": "CivicFix Strict Detection Backend is running"}
 
 @app.post("/detect")
 async def detect_damage(file: UploadFile = File(...)):
