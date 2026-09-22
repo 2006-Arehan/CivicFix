@@ -55,8 +55,10 @@ cp .env.example .env
 npm run dev
 ```
 
-The local frontend uses `http://localhost:8000` by default. Set
-`VITE_API_URL` in `.env` if the backend is running at another address.
+The local frontend uses `http://localhost:8000` by default. The current
+GitHub Pages hostname defaults to `https://civicfix-backend.onrender.com`.
+Set `VITE_API_URL` in `.env` or in the production build environment if your
+Render service has a different URL.
 
 ## Deploy the backend to Render
 
