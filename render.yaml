@@ -4,8 +4,8 @@ services:
     env: python
     plan: free
     rootDir: backend
-    buildCommand: pip install -r requirements.txt && pip uninstall -y opencv-python && pip install --no-deps opencv-python-headless && python download_road_model.py
+    buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: FRONTEND_ORIGINS
-        value: https://2006-arehan.github.io
+      - key: PYTHON_VERSION
+        value: 3.11.11

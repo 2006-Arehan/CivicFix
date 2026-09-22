@@ -4,6 +4,5 @@ ultralytics>=8.3,<9
 opencv-python-headless>=4.10,<5
 python-multipart>=0.0.9,<1
 numpy>=1.26,<3
-torch>=2.2,<3
-tqdm>=4.66,<5
+pydantic>=2.0,<3
 requests>=2.32,<3
