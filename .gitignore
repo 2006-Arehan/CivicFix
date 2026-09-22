@@ -33,5 +33,6 @@ venv/
 # Backend specific
 backend/training_data_enrichment/
 backend/runs/
+backend/data/*.db
 *.pt
 !backend/road_damage_best.pt
