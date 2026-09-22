@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart2, AlertTriangle, CheckCircle, Clock, TrendingUp, Zap, Users, MapPin } from 'lucide-react';
+import { BarChart2, AlertTriangle, CheckCircle, Clock, TrendingUp, Zap, MapPin } from 'lucide-react';
 import {
     PieChart, Pie, Cell, ResponsiveContainer, Tooltip,
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Legend,
@@ -15,7 +15,7 @@ const KPI = ({ label, value, sub, icon: Icon, color, bgColor }) => (
                 <p style={{ fontSize: 34, fontWeight: 800, color, lineHeight: 1 }}>{value}</p>
             </div>
             <div style={{ background: bgColor, padding: 10, borderRadius: 12, flexShrink: 0 }}>
-                <Icon size={22} color={color} />
+                {React.createElement(Icon, { size: 22, color })}
             </div>
         </div>
         {sub && <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 10 }}>{sub}</p>}
@@ -25,17 +25,6 @@ const KPI = ({ label, value, sub, icon: Icon, color, bgColor }) => (
 const AdminDashboard = () => {
     const critical = ALERTS.filter(a => a.type === 'critical' && !a.read);
     const recentReports = DAMAGE_REPORTS.slice(0, 5);
-
-    const customTooltip = ({ active, payload }) => {
-        if (active && payload?.length) {
-            return (
-                <div style={{ background: '#111827', border: '1px solid var(--border-color)', borderRadius: 8, padding: '8px 12px' }}>
-                    <p style={{ color: 'white', fontSize: 12, fontWeight: 600 }}>{payload[0].name}: {payload[0].value}</p>
-                </div>
-            );
-        }
-        return null;
-    };
 
     return (
         <div className="animate-fade-in">

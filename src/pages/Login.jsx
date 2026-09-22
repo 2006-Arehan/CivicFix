@@ -4,6 +4,13 @@ import { useAuth } from '../context/AuthContext';
 import { Eye, EyeOff, Shield, Zap } from 'lucide-react';
 import './Auth.css';
 
+const PARTICLES = Array.from({ length: 20 }, (_, index) => ({
+    left: `${(index * 37) % 100}%`,
+    top: `${(index * 61) % 100}%`,
+    animationDelay: `${(index * 0.7) % 5}s`,
+    animationDuration: `${4 + ((index * 13) % 6)}s`,
+}));
+
 const DEMO_CREDENTIALS = {
     citizen: { email: 'citizen@demo.com', pass: 'demo123' },
     admin: { email: 'admin@demo.com', pass: 'demo123' },
@@ -39,12 +46,9 @@ const Login = () => {
     return (
         <div className="auth-page">
             <div className="auth-bg">
-                {[...Array(20)].map((_, i) => (
+                {PARTICLES.map((particle, i) => (
                     <div key={i} className="bg-particle" style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 5}s`,
-                        animationDuration: `${4 + Math.random() * 6}s`,
+                        ...particle,
                     }} />
                 ))}
                 <div className="bg-grid" />

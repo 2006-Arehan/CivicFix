@@ -8,7 +8,6 @@ const PRIORITY_COLOR = { 1: 'var(--red)', 2: 'var(--yellow)', 3: 'var(--green)' 
 const PRIORITY_LABEL = { 1: 'URGENT', 2: 'HIGH', 3: 'NORMAL' };
 
 const MaintenanceDashboard = () => {
-    const pending = MAINTENANCE_TASKS.filter(t => t.status !== 'repaired');
     const completed = MAINTENANCE_TASKS.filter(t => t.status === 'repaired');
 
     return (

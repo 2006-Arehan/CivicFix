@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate, Link } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
     Home, LayoutDashboard, Map, FileText, Bell, BarChart2,
@@ -94,7 +94,7 @@ const Sidebar = () => {
                         className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
                         title={collapsed ? label : undefined}
                     >
-                        <Icon size={18} strokeWidth={2} />
+                        {React.createElement(Icon, { size: 18, strokeWidth: 2 })}
                         {!collapsed && <span>{label}</span>}
                     </NavLink>
                 ))}

@@ -111,7 +111,7 @@ const CitizenDashboard = () => {
                     </div>
                     {/* Legend */}
                     <div style={{ display: 'flex', gap: 14, marginTop: 10, flexWrap: 'wrap' }}>
-                        {[['minor', '#00cc66', '🟢 Minor'], ['moderate', '#ffaa00', '🟡 Moderate'], ['severe', '#ff6600', '🟠 Severe'], ['critical', '#ff4444', '🔴 Critical']].map(([s, c, l]) => (
+                        {[['minor', '#00cc66', '🟢 Minor'], ['moderate', '#ffaa00', '🟡 Moderate'], ['severe', '#ff6600', '🟠 Severe'], ['critical', '#ff4444', '🔴 Critical']].map(([s, , l]) => (
                             <span key={s} style={{ fontSize: 11, color: 'var(--text-muted)' }}>{l}</span>
                         ))}
                     </div>

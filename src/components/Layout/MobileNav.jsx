@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
-    Home, LayoutDashboard, Map, FileText, Bell, BarChart2, Radio, Navigation, Wrench
+    Home, LayoutDashboard, Map, FileText, Bell, BarChart2, Radio, Wrench
 } from 'lucide-react';
 import './MobileNav.css';
 
@@ -39,7 +39,7 @@ const MobileNav = () => {
                     to={path}
                     className={({ isActive }) => `mob-nav-item ${isActive ? 'active' : ''}`}
                 >
-                    <Icon size={20} strokeWidth={1.8} />
+                    {React.createElement(Icon, { size: 20, strokeWidth: 1.8 })}
                     <span>{label}</span>
                 </NavLink>
             ))}
